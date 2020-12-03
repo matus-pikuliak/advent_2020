@@ -1,5 +1,4 @@
-from functools import reduce
-from operator import mul
+from math import prod
 
 row_len = len(next(open('input'))) - 1
 
@@ -22,4 +21,4 @@ trees = [
     in slopes
 ]
 
-print(reduce(mul, trees))
+print(prod(trees))
