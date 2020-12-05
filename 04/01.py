@@ -1,4 +1,3 @@
-# noinspection PyTypeChecker
 passports = [
     dict(
         line.split(':')
