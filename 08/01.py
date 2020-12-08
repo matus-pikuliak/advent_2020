@@ -9,7 +9,6 @@ visited = set()
 while pos not in visited:
     visited.add(pos)
     instr, attr = lines[pos]
-
     pos += attr if instr == 'jmp' else 1
     acc += instr == 'acc' and attr
 
