@@ -1,5 +1,5 @@
 seats = {
-    i + j*1j: False
+    i + j * 1j: False
     for i, line in enumerate(open('input').read().splitlines())
     for j, c in enumerate(line)
     if c == 'L'
@@ -14,14 +14,10 @@ def occ(seat):
     )
 
 
-while True:
-    new_seats = {
-        s: occ(s) == 0 or (occ(s) < 4 and o)
-        for s, o
+while seats != (seats := {
+        k: occ(k) == 0 or (occ(k) < 4 and v)
+        for k, v
         in seats.items()
-    }
-    if new_seats == seats:
-        print(sum(seats.values()))
-        break
-    seats = new_seats
+    }): pass
 
+print(sum(seats.values()))

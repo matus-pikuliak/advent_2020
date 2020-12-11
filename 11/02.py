@@ -23,14 +23,11 @@ def occ(seat):
     return sum(seats[n] for n in neighbors(seat))
 
 
-while True:
-    new_seats = {
-        s: occ(s) == 0 or (occ(s) < 5 and o)
-        for s, o
+while seats != (seats := {
+        k: occ(k) == 0 or (occ(k) < 5 and v)
+        for k, v
         in seats.items()
-    }
-    if new_seats == seats:
-        print(sum(seats.values()))
-        break
-    seats = new_seats
+    }): pass
+
+print(sum(seats.values()))
 
