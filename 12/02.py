@@ -1,7 +1,7 @@
 dirs = {'E': 1j, 'S': 1, 'W': -1j, 'N': -1}
 rot = {'R': 1, 'L': -1}
 
-pos, wp = 0, -1 + 10jd
+pos, wp = 0, -1 + 10j
 
 for line in open('input'):
     c, num = line[0], int(line[1:])
