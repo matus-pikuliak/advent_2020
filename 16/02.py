@@ -1,5 +1,4 @@
 import re
-from itertools import product
 from math import prod
 
 ranges = [
