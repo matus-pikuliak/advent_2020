@@ -1,5 +1,5 @@
 from functools import cache
-from itertools import product, islice
+from itertools import product
 
 rules = dict(
     line.split(': ')
