@@ -77,11 +77,11 @@ rl_monster = [95, 96, 97, 102, 103, 108, 109, 114, 194, 197, 200, 203, 206, 209]
 
 for _ in range(4):
     for monster in [lr_monster, rl_monster]:
-        if find_monsters(sea, monster):
-            print(sea.count('#') - lochness.count('#') * find_monsters(sea, monster))
+        if m := find_monsters(sea, monster):
+            print(sea.count('#') - lochness.count('#') * m)
             exit()
-    sea = ''.join(
+    sea = [
         sea[(95 - j) * 96 + i]
         for i in range(96)
         for j in range(96)
-    )
+    ]
