@@ -1,16 +1,24 @@
 cups = list(map(int, '538914762'))
+
 v = cups[0]
+cups = {
+    cups[i]: cups[(i + 1) % len(cups)]
+    for i
+    in range(len(cups))
+}
 
-for s in range(100):
-    out = [cups.pop((cups.index(v)+1) % len(cups)) for _ in range(3)]
+for _ in range(100):
+    out = cups[v], cups[cups[v]], cups[cups[cups[v]]], v
 
-    n = v - 1
-    while n % 10 not in cups:
-        n -= 1
+    n = v
+    while n in out:
+        n = n - 1 or 9
 
-    for i in range(3):
-        cups.insert(cups.index(n % 10) + i + 1, out[i])
+    cups[v] = v = cups[out[2]]
+    cups[out[2]] = cups[n]
+    cups[n] = out[0]
 
-    v = cups[(cups.index(v) + 1) % 9]
-
-print(''.join(map(str, cups))*2)
+res = [1]
+while cups[res[-1]] != 1:
+    res.append(cups[res[-1]])
+print(''.join(map(str, res[1:])))
