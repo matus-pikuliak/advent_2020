@@ -1,6 +1,6 @@
 import re
 
-tiles = dict()
+black = set()
 
 for line in open('input').read().splitlines():
     t = 0j
@@ -13,6 +13,6 @@ for line in open('input').read().splitlines():
             'se': 1,
             'sw': -1j + 1
         }[dir]
-    tiles[t] = not tiles.get(t, False)
+    black ^= {t}
 
-print(sum(tiles.values()))
+print(len(black))
